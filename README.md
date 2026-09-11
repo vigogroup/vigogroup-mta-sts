@@ -1,21 +1,16 @@
-# MTA-STS Policy Hosting for vigogroup.com.au
-Static site for MTA-STS policy served via Cloudflare Pages.
-## Deploy
-1. Fork or create new repo from this.
-2. Cloudflare Pages → Connect Git → Deploy (No framework).
-3. Custom domain: `mta-sts.vigogroup.com.au` → CNAME to
-`*.pages.dev`.
-## DNS Records
-Type: CNAME
-Name: mta-sts
-Target: your-project.pages.dev (proxied)
-Type: TXT
-Name: _mta-sts
-Value: "v=STSv1; id=20260223T1500"
-## Updating Policy
-- Edit `.well-known/mta-sts.txt`
-- Update `id=` timestamp in `_mta-sts` TXT
-- Redeploy via Git push
-## Test
-curl https://mta-sts.vigogroup.com.au/.well-known/mta-sts.txt
-mxtoolbox.com/mta-sts
+# MTA-STS Policy for vigogroup.com.au
+
+This repository hosts the MTA-STS policy published for `vigogroup.com.au`.
+
+Production policy:
+
+`https://mta-sts.vigogroup.com.au/.well-known/mta-sts.txt`
+
+## Updating the policy
+
+1. Edit `.well-known/mta-sts.txt`.
+2. Update the `id=` value in the `_mta-sts.vigogroup.com.au` TXT record when the policy changes.
+3. Deploy the updated static site through Cloudflare Pages.
+4. Verify the published policy endpoint.
+
+This is an operational infrastructure repository for Vigo Group.
